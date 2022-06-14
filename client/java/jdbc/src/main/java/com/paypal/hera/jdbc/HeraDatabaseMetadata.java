@@ -676,6 +676,7 @@ public class HeraDatabaseMetadata implements DatabaseMetaData {
 		String[] types)
 		throws SQLException
 	{
+		// This is a first pass implementation and does not cover all the cases. We may need to add implementations for other DBs (Oracle/PostgreSQL)
 		if(connection.getDataSource().equals(HeraClientConfigHolder.E_DATASOURCE_TYPE.MySQL)) {
 			String query = "SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM," +
 					" TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' " +
